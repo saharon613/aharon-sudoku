@@ -7,7 +7,7 @@ public class Sudoku
 
     private int[][] board;
 
-    public Sudoku (int[][] board) {
+    public Sudoku(int[][] board) {
         this.board = board;
     }
 
