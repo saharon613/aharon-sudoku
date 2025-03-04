@@ -26,7 +26,6 @@ public class Sudoku
                     if (numsPassed[np] == currentNumber) {
                         String error = "Duplicate of " + currentNumber + " in row " + row + ", column " + col;
                         errors.add(error);
-                        break;
                     }
                 }
                 numsPassed[countPassed] = currentNumber;
@@ -45,7 +44,6 @@ public class Sudoku
                     if (numsPassed[np] == currentNumber) {
                         String error = "Duplicate of " + currentNumber + " in row " + row + ", column " + col;
                         errors.add(error);
-                        break;
                     }
                 }
                 numsPassed[countPassed] = currentNumber;
@@ -63,13 +61,17 @@ public class Sudoku
                 int startCol = subCol * 3;
 
                 for (int sRow = startRow;  sRow < startRow + 3; sRow++) {
+
                     for (int sCol = startCol;  sCol < startCol + 3; sCol++) {
+
                         int currentNumber = board[sRow][sCol];
+
                         for (int np = 0; np < countPassed; np++) {
+
                             if (numsPassed[np] == currentNumber) {
-                                String error = "Duplicate of " + currentNumber + " in row " + sRow + ", column " + sCol;
+                                int boxNum = subRow * 3 + subCol + 1;
+                                String error = "Duplicate of " + currentNumber + " in box " + boxNum;
                                 errors.add(error);
-                                break;
                             }
                         }
                         numsPassed[countPassed] = currentNumber;
