@@ -2,7 +2,8 @@ package aharon.sudoku;
 
 import java.util.*;
 
-public class Sudoku {
+public class Sudoku
+{
 
     private int[][] board;
 
