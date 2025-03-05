@@ -16,46 +16,41 @@ public class Sudoku
         List<String> errors = new ArrayList<>();
 
         for (int col = 0; col < 9; col++) {
-            int[] numsPassed = new int[9];
-            int countPassed = 0;
+            int[] numsPassed = new int[10];
 
             for (int row = 0; row < 9; row++) {
                 int currentNumber = board[row][col];
 
-                for (int np = 0; np < countPassed; np++) {
-                    if (numsPassed[np] == currentNumber) {
+                if (currentNumber >= 1 && currentNumber <= 9) {
+                    if (numsPassed[currentNumber] == 1) {
                         String error = "Duplicate of " + currentNumber + " in row " + row + ", column " + col;
                         errors.add(error);
                     }
+                    numsPassed[currentNumber] = 1;
                 }
-                numsPassed[countPassed] = currentNumber;
-                countPassed++;
             }
         }
 
         for (int row = 0; row < 9; row++) {
-            int[] numsPassed = new int[9];
-            int countPassed = 0;
+            int[] numsPassed = new int[10];
 
             for (int col = 0; col < 9; col++) {
                 int currentNumber = board[row][col];
 
-                for (int np = 0; np < countPassed; np++) {
-                    if (numsPassed[np] == currentNumber) {
+                if (currentNumber >= 1 && currentNumber <= 9) {
+                    if (numsPassed[currentNumber] == 1) {
                         String error = "Duplicate of " + currentNumber + " in row " + row + ", column " + col;
                         errors.add(error);
                     }
+                    numsPassed[currentNumber] = 1;
                 }
-                numsPassed[countPassed] = currentNumber;
-                countPassed++;
             }
         }
 
         for (int subRow = 0; subRow < 3; subRow++) {
             for (int subCol = 0; subCol < 3; subCol++) {
 
-                int[] numsPassed = new int[9];
-                int countPassed = 0;
+                int[] numsPassed = new int[10];
 
                 int startRow = subRow * 3;
                 int startCol = subCol * 3;
@@ -66,16 +61,15 @@ public class Sudoku
 
                         int currentNumber = board[sRow][sCol];
 
-                        for (int np = 0; np < countPassed; np++) {
+                        if (currentNumber >= 1 && currentNumber <= 9) {
 
-                            if (numsPassed[np] == currentNumber) {
-                                int boxNum = subRow * 3 + subCol + 1;
+                            if (numsPassed[currentNumber] == 1) {
+                                int boxNum = (subRow * 3) + subCol + 1;
                                 String error = "Duplicate of " + currentNumber + " in box " + boxNum;
                                 errors.add(error);
                             }
+                            numsPassed[currentNumber] = 1;
                         }
-                        numsPassed[countPassed] = currentNumber;
-                        countPassed++;
                     }
                 }
             }
