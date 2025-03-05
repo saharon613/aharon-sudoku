@@ -12,12 +12,12 @@ public class Sudoku
     }
 
     public List<String> getErrors() {
-        List<String> errors = new ArrayList<>();
-        errors.addAll(getColErrors()); // Add column errors to the list
-        errors.addAll(getRowErrors()); // Add row errors to the list
-        errors.addAll(getBoxErrors()); // Add box errors to the list
+        List<String> allErrors = new ArrayList<>();
+        allErrors.addAll(getColErrors()); // Add column errors to the list
+        allErrors.addAll(getRowErrors()); // Add row errors to the list
+        allErrors.addAll(getBoxErrors()); // Add box errors to the list
 
-        return errors;
+        return allErrors;
     }
 
     public List<String> getColErrors() {
