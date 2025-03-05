@@ -25,14 +25,11 @@ class SudokuTest {
         Sudoku game = new Sudoku(board);
 
         //when
-        List<String> colErrors = game.getColErrors();
-        List<String> rowErrors = game.getRowErrors();
-        List<String> boxErrors = game.getBoxErrors();
+        List<String> errors = game.getErrors();
 
         //then
-        assertEquals(List.of("Duplicate of 3 in row 8, column 0"), colErrors);
-        assertEquals(List.of("Duplicate of 3 in row 1, column 6"), rowErrors);
-        assertEquals(List.of("Duplicate of 3 in box 1"), boxErrors);
+        assertEquals(List.of("Duplicate of 3 in row 8, column 0", "Duplicate of 3 in row 1, column 6",
+                "Duplicate of 3 in box 1"), errors);
 
     }
 }
