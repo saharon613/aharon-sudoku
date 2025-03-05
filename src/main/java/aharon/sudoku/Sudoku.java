@@ -11,8 +11,7 @@ public class Sudoku
         this.board = board;
     }
 
-    public List<String> getErrors()
-    {
+    public List<String> getColErrors() {
         List<String> errors = new ArrayList<>();
 
         for (int col = 0; col < 9; col++) {
@@ -30,7 +29,11 @@ public class Sudoku
                 }
             }
         }
+        return errors;
+    }
 
+    public List<String> getRowErrors() {
+        List<String> errors = new ArrayList<>();
         for (int row = 0; row < 9; row++) {
             int[] numsPassed = new int[10];
 
@@ -46,6 +49,12 @@ public class Sudoku
                 }
             }
         }
+        return errors;
+    }
+
+    public List<String> getBoxErrors()
+    {
+        List<String> errors = new ArrayList<>();
 
         for (int subRow = 0; subRow < 3; subRow++) {
             for (int subCol = 0; subCol < 3; subCol++) {
