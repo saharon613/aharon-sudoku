@@ -13,14 +13,15 @@ public class Sudoku
 
     public List<String> getErrors() {
         List<String> errors = new ArrayList<>();
-        getColErrors(errors);
-        getRowErrors(errors);
-        getBoxErrors(errors);
+        errors.addAll(getColErrors()); // Add column errors to the list
+        errors.addAll(getRowErrors()); // Add row errors to the list
+        errors.addAll(getBoxErrors()); // Add box errors to the list
 
         return errors;
     }
 
-    public List<String> getColErrors(List<String> errors) {
+    public List<String> getColErrors() {
+        List<String> errors = new ArrayList<>();
 
         for (int col = 0; col < 9; col++) {
             int[] numsPassed = new int[10];
@@ -40,7 +41,9 @@ public class Sudoku
         return errors;
     }
 
-    public List<String> getRowErrors(List<String> errors) {
+    public List<String> getRowErrors() {
+        List<String> errors = new ArrayList<>();
+
         for (int row = 0; row < 9; row++) {
             int[] numsPassed = new int[10];
 
@@ -59,8 +62,9 @@ public class Sudoku
         return errors;
     }
 
-    public List<String> getBoxErrors(List<String> errors)
+    public List<String> getBoxErrors()
     {
+        List<String> errors = new ArrayList<>();
         for (int subRow = 0; subRow < 3; subRow++) {
             for (int subCol = 0; subCol < 3; subCol++) {
 
