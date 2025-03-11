@@ -75,8 +75,7 @@ public class SudokuFrame extends JFrame {
 
         List<SudokuError> errors = sudoku.getErrors();
 
-        for (int errorIn = 0; errorIn < errors.size(); errorIn++) {
-            SudokuError error = errors.get(errorIn);
+        for (SudokuError error : errors) {
             int row = error.getRow();
             int col = error.getColumn();
             textFields[row][col].setBackground(Color.RED);
