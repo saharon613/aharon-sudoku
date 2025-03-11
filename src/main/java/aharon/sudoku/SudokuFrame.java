@@ -8,8 +8,8 @@ import java.util.List;
 
 public class SudokuFrame extends JFrame {
 
-    private JTextField[][] textFields = new JTextField[9][9];
-    private Sudoku sudoku;
+    JTextField[][] textFields = new JTextField[9][9];
+    Sudoku sudoku;
 
     public SudokuFrame() {
         setTitle("Sudoku Board");
@@ -26,7 +26,7 @@ public class SudokuFrame extends JFrame {
                 {7, 1, 3, 9, 2, 4, 8, 5, 6},
                 {9, 6, 1, 5, 3, 7, 2, 8, 4},
                 {2, 8, 7, 4, 1, 9, 6, 3, 5},
-                {3, 0, 5, 2, 8, 6, 1, 7, 9}
+                {3, 4, 5, 2, 8, 6, 1, 7, 9}
         };
 
         sudoku = new Sudoku(partialBoard);
@@ -60,7 +60,7 @@ public class SudokuFrame extends JFrame {
         }
     }
 
-    private void checkBoard() {
+    void checkBoard() {
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
                 String text = textFields[row][col].getText();
