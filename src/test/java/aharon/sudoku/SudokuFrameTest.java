@@ -12,7 +12,6 @@ class SudokuFrameTest {
 
     @BeforeEach
     void setUp() {
-        System.setProperty("java.awt.headless", "true");
         board = new SudokuFrame();
     }
 
