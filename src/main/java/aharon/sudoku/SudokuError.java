@@ -23,10 +23,10 @@ public class SudokuError
 
     @Override
     public String toString() {
-        return "SudokuError{" +
-                "row=" + row +
-                ", column=" + column +
-                ", value=" + value +
-                '}';
+        return "SudokuError{"
+                + "row=" + row
+                + ", column=" + column
+                + ", value=" + value
+                + '}';
     }
 }

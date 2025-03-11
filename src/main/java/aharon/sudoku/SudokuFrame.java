@@ -17,18 +17,6 @@ public class SudokuFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(9, 9));
 
-//        int[][] partialBoard = {
-//                {5, 0, 0, 0, 0, 0, 0, 1, 0},
-//                {0, 7, 0, 1, 0, 0, 0, 0, 8},
-//                {0, 0, 8, 3, 0, 2, 0, 6, 0},
-//                {0, 0, 0, 7, 0, 1, 0, 0, 3},
-//                {0, 2, 0, 0, 5, 0, 0, 9, 0},
-//                {7, 0, 3, 0, 2, 0, 8, 0, 0},
-//                {0, 6, 0, 0, 0, 7, 2, 8, 0},
-//                {0, 8, 0, 4, 1, 0, 0, 0, 0},
-//                {3, 0, 0, 0, 0, 0, 1, 0, 9},
-//        };
-
         int[][] partialBoard = {
                 {5, 3, 4, 6, 7, 8, 9, 1, 2},
                 {0, 7, 2, 1, 9, 5, 3, 4, 8},
@@ -58,9 +46,11 @@ public class SudokuFrame extends JFrame {
                         public void changedUpdate(DocumentEvent e) {
                             checkBoard();
                         }
+
                         public void insertUpdate(DocumentEvent e) {
                             checkBoard();
                         }
+
                         public void removeUpdate(DocumentEvent e) {
                             checkBoard();
                         }
