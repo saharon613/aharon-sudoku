@@ -32,8 +32,6 @@ public class Sudoku
                 if (currentNumber >= 1 && currentNumber <= 9) {
                     if (numsPassed[currentNumber] == 1) {
                         errors.add(new SudokuError(row, col, currentNumber));
-//                        String error = "Duplicate of " + currentNumber + " in row " + row + ", column " + col;
-//                        errors.add(error);
                     }
                     numsPassed[currentNumber] = 1;
                 }
@@ -54,8 +52,6 @@ public class Sudoku
                 if (currentNumber >= 1 && currentNumber <= 9) {
                     if (numsPassed[currentNumber] == 1) {
                         errors.add(new SudokuError(row, col, currentNumber));
-//                        String error = "Duplicate of " + currentNumber + " in row " + row + ", column " + col;
-//                        errors.add(error);
                     }
                     numsPassed[currentNumber] = 1;
                 }
@@ -85,9 +81,6 @@ public class Sudoku
 
                             if (numsPassed[currentNumber] == 1) {
                                 errors.add(new SudokuError(sRow, sCol, currentNumber));
-//                                int boxNum = (subRow * 3) + subCol + 1;
-//                                String error = "Duplicate of " + currentNumber + " in box " + boxNum;
-//                                errors.add(error);
                             }
                             numsPassed[currentNumber] = 1;
                         }
