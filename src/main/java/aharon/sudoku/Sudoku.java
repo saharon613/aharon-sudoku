@@ -2,8 +2,7 @@ package aharon.sudoku;
 
 import java.util.*;
 
-public class Sudoku
-{
+public class Sudoku {
 
     int[][] board;
 
@@ -60,8 +59,7 @@ public class Sudoku
         return errors;
     }
 
-    public List<SudokuError> getBoxErrors()
-    {
+    public List<SudokuError> getBoxErrors() {
         List<SudokuError> errors = new ArrayList<>();
         for (int subRow = 0; subRow < 3; subRow++) {
             for (int subCol = 0; subCol < 3; subCol++) {
@@ -71,9 +69,9 @@ public class Sudoku
                 int startRow = subRow * 3;
                 int startCol = subCol * 3;
 
-                for (int sRow = startRow;  sRow < startRow + 3; sRow++) {
+                for (int sRow = startRow; sRow < startRow + 3; sRow++) {
 
-                    for (int sCol = startCol;  sCol < startCol + 3; sCol++) {
+                    for (int sCol = startCol; sCol < startCol + 3; sCol++) {
 
                         int currentNumber = board[sRow][sCol];
 
