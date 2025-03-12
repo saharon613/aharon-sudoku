@@ -67,6 +67,7 @@ public class SudokuFrame extends JFrame {
                 if (!text.isEmpty()) {
                     sudoku.board[row][col] = Integer.parseInt(text);
                 }
+                textFields[row][col].setBackground(Color.WHITE);
             }
         }
 
@@ -75,8 +76,8 @@ public class SudokuFrame extends JFrame {
         List<SudokuError> errors = sudoku.getErrors();
 
         for (SudokuError error : errors) {
-            int row = error.getRow();
-            int col = error.getColumn();
+            int row = error.row();
+            int col = error.column();
             textFields[row][col].setBackground(Color.RED);
             System.out.println(error);
         }
