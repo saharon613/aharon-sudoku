@@ -2,6 +2,8 @@ package aharon.sudoku;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,11 +27,14 @@ class SudokuTest {
         Sudoku game = new Sudoku(board);
 
         //when
-        List<String> errors = game.getErrors();
+        List<SudokuError> errors = game.getErrors();
 
         //then
-        assertEquals(List.of("Duplicate of 3 in row 8, column 0", "Duplicate of 3 in row 1, column 6",
-                "Duplicate of 3 in box 1"), errors);
+        assertEquals(List.of(
+                new SudokuError(8, 0, 3),
+                new SudokuError(1, 6, 3),
+                new SudokuError(1, 0, 3)
+        ).toString(), errors.toString());
 
     }
 
@@ -51,7 +56,7 @@ class SudokuTest {
         Sudoku game = new Sudoku(board);
 
         //when
-        List<String> errors = game.getErrors();
+        List<SudokuError> errors = game.getErrors();
 
         //then
         assertEquals(List.of(), errors);
