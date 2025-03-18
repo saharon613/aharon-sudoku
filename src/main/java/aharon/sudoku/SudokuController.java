@@ -1,5 +1,4 @@
 package aharon.sudoku;
-// check
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
