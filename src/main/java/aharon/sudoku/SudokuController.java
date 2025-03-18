@@ -19,12 +19,10 @@ public class SudokuController {
             for (int col = 0; col < 9; col++) {
                 String cellText = cells[row][col].getText();
                 if (!cellText.isEmpty()) {
-                    try
-                    {
+                    try {
                         int value = Integer.parseInt(cellText);
                         sudoku.board[row][col] = value;
-                    }
-                    catch (NumberFormatException e) {
+                    } catch (NumberFormatException e) {
                         sudoku.board[row][col] = 0;
                     }
                 }
