@@ -1,6 +1,8 @@
 package aharon.sudoku;
 
 import javax.swing.*;
+import java.awt.*;
+import java.util.List;
 
 public class SudokuController {
     private final Sudoku sudoku;
@@ -28,5 +30,25 @@ public class SudokuController {
                 }
             }
         }
+    }
+
+    public void highlightErrors() {
+        List<SudokuError> errors = sudoku.getErrors();
+        JTextField[][] textFields = frame.textFields;
+
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                textFields[row][col].setBackground(Color.WHITE);
+            }
+        }
+
+        for (SudokuError error : errors) {
+            textFields[error.row()][error.column()].setBackground(Color.RED);
+        }
+    }
+
+    public void checkBoard() {
+        readGui();
+        highlightErrors();
     }
 }
