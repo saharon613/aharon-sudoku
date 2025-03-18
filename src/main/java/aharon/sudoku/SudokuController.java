@@ -11,13 +11,14 @@ public class SudokuController {
         this.frame = frame;
     }
 
-    public void readGUI(){
+    public void readGui() {
         JTextField[][] cells = frame.textFields;
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
                 String cellText = cells[row][col].getText();
                 if (!cellText.isEmpty()) {
-                    try {
+                    try
+                    {
                         int value = Integer.parseInt(cellText);
                         sudoku.board[row][col] = value;
                     }
