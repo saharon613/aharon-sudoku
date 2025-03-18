@@ -65,7 +65,7 @@ public class SudokuFrame extends JFrame {
             for (int col = 0; col < 9; col++) {
                 String text = textFields[row][col].getText();
                 if (!text.isEmpty()) {
-                    sudoku.board[row][col] = Integer.parseInt(text);
+                    sudoku.setValue(row, col, Integer.parseInt(text));
                 }
                 textFields[row][col].setBackground(Color.WHITE);
             }

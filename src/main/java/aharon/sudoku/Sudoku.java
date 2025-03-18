@@ -10,6 +10,12 @@ public class Sudoku {
         this.board = board;
     }
 
+    public void setValue(int row, int col, int value) {
+        if (row >= 0 && row < 9 && col >= 0 && col < 9) {
+            this.board[row][col] = value;
+        }
+    }
+
     public List<SudokuError> getErrors() {
         List<SudokuError> allErrors = new ArrayList<>();
         allErrors.addAll(getColErrors());

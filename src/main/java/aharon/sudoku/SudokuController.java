@@ -6,24 +6,24 @@ import java.util.List;
 
 public class SudokuController {
     private final Sudoku sudoku;
-    private final SudokuFrame frame;
+    private final JTextField[][] cells;
 
-    public SudokuController(Sudoku sudoku, SudokuFrame frame) {
+    public SudokuController(Sudoku sudoku, JTextField[][] cells) {
         this.sudoku = sudoku;
-        this.frame = frame;
+        this.cells = cells;
     }
 
     public void readGui() {
-        JTextField[][] cells = frame.textFields;
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
                 String cellText = cells[row][col].getText();
                 if (!cellText.isEmpty()) {
                     try {
                         int value = Integer.parseInt(cellText);
-                        sudoku.board[row][col] = value;
+                        sudoku.setValue(row, col, value);
                     } catch (NumberFormatException e) {
-                        sudoku.board[row][col] = 0;
+                        sudoku.setValue(row, col, 0);
+                        cells[row][col].setBackground(Color.YELLOW);
                     }
                 }
             }
@@ -32,16 +32,15 @@ public class SudokuController {
 
     public void highlightErrors() {
         List<SudokuError> errors = sudoku.getErrors();
-        JTextField[][] textFields = frame.textFields;
 
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
-                textFields[row][col].setBackground(Color.WHITE);
+                cells[row][col].setBackground(Color.WHITE);
             }
         }
 
         for (SudokuError error : errors) {
-            textFields[error.row()][error.column()].setBackground(Color.RED);
+            cells[error.row()][error.column()].setBackground(Color.RED);
         }
     }
 
