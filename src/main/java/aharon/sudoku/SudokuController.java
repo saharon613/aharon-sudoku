@@ -13,7 +13,7 @@ public class SudokuController {
         this.cells = cells;
     }
 
-    public void readGui() {
+    private void readGui() {
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
                 String cellText = cells[row][col].getText();
@@ -30,7 +30,7 @@ public class SudokuController {
         }
     }
 
-    public void highlightErrors() {
+    private void highlightErrors() {
         List<SudokuError> errors = sudoku.getErrors();
 
         for (int row = 0; row < 9; row++) {

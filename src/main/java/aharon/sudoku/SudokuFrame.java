@@ -4,12 +4,12 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
-import java.util.List;
 
 public class SudokuFrame extends JFrame {
 
     JTextField[][] textFields = new JTextField[9][9];
     Sudoku sudoku;
+    SudokuController controller;
 
     public SudokuFrame() {
         setTitle("Sudoku Board");
@@ -30,6 +30,7 @@ public class SudokuFrame extends JFrame {
         };
 
         sudoku = new Sudoku(partialBoard);
+        controller = new SudokuController(sudoku, textFields);
 
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
@@ -43,43 +44,20 @@ public class SudokuFrame extends JFrame {
                 } else {
                     textField.getDocument().addDocumentListener(new DocumentListener() {
                         public void changedUpdate(DocumentEvent e) {
-                            checkBoard();
+                            controller.checkBoard();
                         }
 
                         public void insertUpdate(DocumentEvent e) {
-                            checkBoard();
+                            controller.checkBoard();
                         }
 
                         public void removeUpdate(DocumentEvent e) {
-                            checkBoard();
+                            controller.checkBoard();
                         }
                     });
                 }
                 add(textField);
             }
-        }
-    }
-
-    void checkBoard() {
-        for (int row = 0; row < 9; row++) {
-            for (int col = 0; col < 9; col++) {
-                String text = textFields[row][col].getText();
-                if (!text.isEmpty()) {
-                    sudoku.setValue(row, col, Integer.parseInt(text));
-                }
-                textFields[row][col].setBackground(Color.WHITE);
-            }
-        }
-
-        System.out.println("board filled");
-
-        List<SudokuError> errors = sudoku.getErrors();
-
-        for (SudokuError error : errors) {
-            int row = error.row();
-            int col = error.column();
-            textFields[row][col].setBackground(Color.RED);
-            System.out.println(error);
         }
     }
 
