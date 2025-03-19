@@ -21,7 +21,13 @@ public class SudokuController {
                 if (!cellText.isEmpty()) {
                     try {
                         int value = Integer.parseInt(cellText);
+
+                        if (value < 1 || value > 9) {
+                            throw new NumberFormatException();
+                        }
+
                         sudoku.setValue(row, col, value);
+                        cells[row][col].setBackground(Color.WHITE);
 
                     } catch (NumberFormatException e) {
                         //sudoku.setValue(row, col, 0);
