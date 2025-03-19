@@ -24,8 +24,7 @@ public class SudokuController {
                         sudoku.setValue(row, col, value);
 
                     } catch (NumberFormatException e) {
-
-                        sudoku.setValue(row, col, 0);
+                        //sudoku.setValue(row, col, 0);
                         cells[row][col].setBackground(Color.YELLOW);
                     }
                 }
@@ -38,7 +37,9 @@ public class SudokuController {
 
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
-                cells[row][col].setBackground(Color.WHITE);
+                if (!cells[row][col].getBackground().equals(Color.YELLOW)) {
+                    cells[row][col].setBackground(Color.WHITE);
+                }
             }
         }
 
