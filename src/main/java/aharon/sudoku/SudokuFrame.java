@@ -41,7 +41,9 @@ public class SudokuFrame extends JFrame {
                 if (partialBoard[row][col] != 0) {
                     textField.setText(String.valueOf(partialBoard[row][col]));
                     textField.setEditable(false);
+
                 } else {
+
                     textField.getDocument().addDocumentListener(new DocumentListener() {
                         public void changedUpdate(DocumentEvent e) {
                             controller.checkBoard();

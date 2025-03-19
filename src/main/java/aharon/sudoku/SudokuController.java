@@ -5,6 +5,7 @@ import java.awt.*;
 import java.util.List;
 
 public class SudokuController {
+
     private final Sudoku sudoku;
     private final JTextField[][] cells;
 
@@ -21,7 +22,9 @@ public class SudokuController {
                     try {
                         int value = Integer.parseInt(cellText);
                         sudoku.setValue(row, col, value);
+
                     } catch (NumberFormatException e) {
+
                         sudoku.setValue(row, col, 0);
                         cells[row][col].setBackground(Color.YELLOW);
                     }
