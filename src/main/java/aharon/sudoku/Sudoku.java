@@ -1,5 +1,4 @@
 package aharon.sudoku;
-
 import java.util.*;
 
 public class Sudoku {
