@@ -49,6 +49,6 @@ public class SudokuController {
 
     public void checkBoard() {
         readGui();
-        highlightErrors()
+        highlightErrors();
     }
 }
